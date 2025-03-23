@@ -120,7 +120,7 @@ const HolidayPackages = () => {
         <ParticleBackground 
           className="absolute inset-0 z-0" 
           imageSrc="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=2674&auto=format&fit=crop"
-          
+          overlayColor="bg-gradient-to-r from-blue-500/70 to-purple-600/70"
         />
       </section>
       
