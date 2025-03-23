@@ -1,7 +1,10 @@
 # IRCTC Website Redesign
 
 A modern redesign of the IRCTC (Indian Railway Catering and Tourism Corporation) website, developed for the IIT Patna Hackathon.
-Website URL:https://irctc-redesigned-vinod.netlify.app/
+Website 
+
+#Demo
+URL:https://irctc-redesigned-vinod.netlify.app/
 
 ## Project Overview
 
