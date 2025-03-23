@@ -98,13 +98,6 @@ vinodkrishna221-irctc_redesigned_vinod_krishna/
 - **Tailwind CSS** - Utility-first CSS framework
 - **Shadcn UI** - Reusable component library
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-[MIT](LICENSE)
 
 ## Acknowledgements
 
