@@ -108,3 +108,4 @@ vinodkrishna221-irctc_redesigned_vinod_krishna/
 - IIT Patna for hosting the hackathon
 - Lovable AI for assistance in development
 - Original IRCTC platform for inspiration
+- ussed some images from unsplash
