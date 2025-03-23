@@ -22,7 +22,7 @@ const HolidayPackages = () => {
     {
       id: 2,
       title: 'Kerala Backwaters',
-      image: 'https://images.unsplash.com/photo-1580289152210-61f54d0fb9a9?ixlib=rb-4.0.3&q=85&w=800&h=400&crop=center',
+      image: 'https://images.unsplash.com/photo-1624554305378-0f440dd3a8c1?q=80&w=2025&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       destinations: 'Kochi - Munnar - Alleppey - Kovalam',
       duration: '8 Days / 7 Nights',
       price: '₹32,499',
