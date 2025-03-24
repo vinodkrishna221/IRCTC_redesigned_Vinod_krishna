@@ -67,7 +67,7 @@ const SearchWidget = memo(() => {
 
   const handleSearch = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent default button behavior
-    navigate('/train-list'); // Navigate to train-list instead of book-train
+    navigate('/book-train'); // Navigate to train-list instead of book-train
   };
 
   const handleMouseEnterSearch = () => {
