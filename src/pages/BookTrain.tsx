@@ -40,7 +40,7 @@ const popularStations = [
   { code: 'PNBE', name: 'Patna Jn' },
   { code: 'LKO', name: 'Lucknow' },
 ];
-const navigate = useNavigate();
+
 
 const bookingSchema = z.object({
   fromStation: z.string().min(1, { message: "From station is required" }),
@@ -58,6 +58,7 @@ type BookingFormValues = z.infer<typeof bookingSchema>;
 const BookTrain = () => {
   const [fromSuggestions, setFromSuggestions] = useState<boolean>(false);
   const [toSuggestions, setToSuggestions] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(bookingSchema),
