@@ -40,6 +40,7 @@ const popularStations = [
   { code: 'PNBE', name: 'Patna Jn' },
   { code: 'LKO', name: 'Lucknow' },
 ];
+const navigate = useNavigate();
 
 const bookingSchema = z.object({
   fromStation: z.string().min(1, { message: "From station is required" }),
@@ -71,7 +72,7 @@ const BookTrain = () => {
 
   const onSubmit = (data: BookingFormValues) => {
     console.log("Form submitted:", data);
-     window.location.href = '/train-list';
+    navigate('/train-list');
   };
 
   const handleStationSelect = (field: 'fromStation' | 'toStation', station: string) => {
