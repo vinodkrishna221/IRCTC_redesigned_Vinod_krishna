@@ -71,7 +71,7 @@ const BookTrain = () => {
 
   const onSubmit = (data: BookingFormValues) => {
     console.log("Form submitted:", data);
-    navigate('/book-train');
+     window.location.href = '/train-list';
   };
 
   const handleStationSelect = (field: 'fromStation' | 'toStation', station: string) => {
