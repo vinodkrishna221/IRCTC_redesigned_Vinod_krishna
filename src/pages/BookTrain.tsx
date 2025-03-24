@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import Card from '@/components/common/Card';
+import { useNavigate } from 'react-router-dom';
+import { usePrefetch } from '@/App';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -69,7 +71,7 @@ const BookTrain = () => {
 
   const onSubmit = (data: BookingFormValues) => {
     console.log("Form submitted:", data);
-    window.location.href = '/train-list';
+    navigate('/book-train');
   };
 
   const handleStationSelect = (field: 'fromStation' | 'toStation', station: string) => {
