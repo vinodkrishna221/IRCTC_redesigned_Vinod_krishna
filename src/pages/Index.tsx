@@ -9,7 +9,7 @@ import StatusIndicator from '@/components/common/StatusIndicator';
 
 const useAnimateOnScroll = () => {
   const animationRefs = useRef<(HTMLElement | null)[]>([]);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -21,18 +21,18 @@ const useAnimateOnScroll = () => {
       },
       { threshold: 0.1 }
     );
-    
+
     animationRefs.current.forEach(ref => {
       if (ref) observer.observe(ref);
     });
-    
+
     return () => {
       animationRefs.current.forEach(ref => {
         if (ref) observer.unobserve(ref);
       });
     };
   }, []);
-  
+
   return (ref: HTMLElement | null) => {
     if (ref) {
       ref.classList.add('animate-on-scroll');
@@ -44,14 +44,14 @@ const useAnimateOnScroll = () => {
 const Index = () => {
   const navigate = useNavigate();
   const animateRef = useAnimateOnScroll();
-  
+
   const quickLinks = [
     { title: 'Book Ticket', icon: <Ticket className="w-10 h-10 text-irctc-royal-blue" />, href: '/book-train', color: 'bg-blue-50' },
     { title: 'Train Status', icon: <Train className="w-10 h-10 text-irctc-royal-blue" />, href: '/track-train', color: 'bg-blue-50' },
     { title: 'PNR Status', icon: <BarChart4 className="w-10 h-10 text-irctc-light-blue" />, href: '/pnr-status', color: 'bg-indigo-50' },
     { title: 'Fare Alert', icon: <Bell className="w-10 h-10 text-irctc-orange" />, href: '/fare-alert', color: 'bg-orange-50' },
   ];
-  
+
   const testimonials = [
     {
       name: 'Rahul Sharma',
@@ -75,13 +75,13 @@ const Index = () => {
       rating: 5,
     },
   ];
-  
+
   const popularDestinations = [
     { name: 'Delhi to Mumbai', image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', trains: '42+ trains', time: '16h 35m avg' },
     { name: 'Bengaluru to Chennai', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&q=85&w=500&h=350&crop=center', trains: '23+ trains', time: '6h 15m avg' },
     { name: 'Kolkata to Delhi', image: 'https://images.unsplash.com/photo-1536421469767-80559bb6f5e1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', trains: '19+ trains', time: '20h 45m avg' },
   ];
-  
+
   return (
     <MainLayout>
       {/* Hero Section */}
@@ -90,9 +90,10 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-white/90 to-white/70" />
           <div className="absolute w-full h-full bg-[url('https://images.unsplash.com/photo-1486754735734-325b5831c3ad?ixlib=rb-4.0.3&q=85&w=1920&h=1080&crop=center')] bg-cover bg-center opacity-20" />
         </div>
-        
+
         <div className="container mx-auto px-4 z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+          {/* CHANGED grid-cols-2 to grid-cols-1 md:grid-cols-2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-7">
               <span className="inline-block mb-3 px-3 py-1 bg-irctc-royal-blue/10 text-irctc-royal-blue text-sm font-medium rounded-full">
                 India's #1 Rail Booking Platform
@@ -104,8 +105,8 @@ const Index = () => {
                 Book train tickets effortlessly, track journeys in real-time, and enjoy seamless travel experiences with India's most trusted railway platform.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button 
-                  variant="primary" 
+                <Button
+                  variant="primary"
                   size="lg"
                   onClick={() => navigate('/book-train')}
                 >
@@ -116,7 +117,7 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            
+
             <div className="lg:col-span-5 ml-0 mr-auto">
               <div className="w-full max-w-md lg:max-w-full">
                 <SearchWidget />
@@ -125,7 +126,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Quick Links Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -135,11 +136,11 @@ const Index = () => {
               Access essential services with a single click and get moving faster
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickLinks.map((link, index) => (
               <Link to={link.href} key={index}>
-                <Card 
+                <Card
                   interactive
                   className="text-center p-6 h-full transition-transform hover:scale-105"
                   ref={animateRef}
@@ -155,7 +156,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Trust Indicators Section */}
       <section className="py-16 bg-irctc-light-gray">
         <div className="container mx-auto px-4">
@@ -165,7 +166,7 @@ const Index = () => {
               Reliable, efficient, and designed with your convenience in mind
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="p-8 border border-gray-100" ref={animateRef}>
               <div className="flex flex-col items-center text-center">
@@ -178,7 +179,7 @@ const Index = () => {
                 </p>
               </div>
             </Card>
-            
+
             <Card className="p-8 border border-gray-100" ref={animateRef}>
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-irctc-orange/10 rounded-full flex items-center justify-center mb-6">
@@ -190,7 +191,7 @@ const Index = () => {
                 </p>
               </div>
             </Card>
-            
+
             <Card className="p-8 border border-gray-100" ref={animateRef}>
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-irctc-light-blue/10 rounded-full flex items-center justify-center mb-6">
@@ -203,24 +204,24 @@ const Index = () => {
               </div>
             </Card>
           </div>
-          
+
           <div className="mt-16 text-center" ref={animateRef}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-3xl font-bold text-irctc-royal-blue mb-2">99.8%</div>
                 <p className="text-irctc-medium-gray">Booking Success Rate</p>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-3xl font-bold text-irctc-royal-blue mb-2">10M+</div>
                 <p className="text-irctc-medium-gray">Monthly Active Users</p>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-3xl font-bold text-irctc-royal-blue mb-2">5,000+</div>
                 <p className="text-irctc-medium-gray">Trains Covered</p>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-3xl font-bold text-irctc-royal-blue mb-2">7,500+</div>
                 <p className="text-irctc-medium-gray">Stations Connected</p>
@@ -229,7 +230,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Popular Destinations */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -240,25 +241,25 @@ const Index = () => {
                 Discover the most traveled train routes across India
               </p>
             </div>
-            
+
             <Link to="/all-routes" className="mt-4 md:mt-0 inline-flex items-center text-irctc-royal-blue font-medium">
               View All Routes
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {popularDestinations.map((destination, index) => (
-              <Card 
-                key={index} 
-                interactive 
+              <Card
+                key={index}
+                interactive
                 className="overflow-hidden"
                 ref={animateRef}
               >
                 <div className="relative h-48">
-                  <img 
-                    src={destination.image} 
-                    alt={destination.name} 
+                  <img
+                    src={destination.image}
+                    alt={destination.name}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -283,7 +284,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Testimonials */}
       <section className="py-16 bg-irctc-light-gray">
         <div className="container mx-auto px-4">
@@ -293,19 +294,19 @@ const Index = () => {
               Hear from our satisfied users about their experiences with IRCTC Express
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="h-full"
                 ref={animateRef}
               >
                 <Card.Content className="p-6">
                   <div className="flex items-start mb-4">
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={testimonial.name} 
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
                       className="w-12 h-12 rounded-full mr-4"
                     />
                     <div>
@@ -313,14 +314,14 @@ const Index = () => {
                       <p className="text-sm text-irctc-medium-gray">{testimonial.role}</p>
                     </div>
                   </div>
-                  
+
                   <p className="mb-4 italic text-irctc-dark-gray">"{testimonial.content}"</p>
-                  
+
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`w-4 h-4 ${i < testimonial.rating ? 'text-irctc-orange fill-irctc-orange' : 'text-gray-300'}`} 
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${i < testimonial.rating ? 'text-irctc-orange fill-irctc-orange' : 'text-gray-300'}`}
                       />
                     ))}
                   </div>
@@ -330,7 +331,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-16 bg-irctc-royal-blue text-white">
         <div className="container mx-auto px-4 text-center" ref={animateRef}>
@@ -342,15 +343,15 @@ const Index = () => {
             Download our app today for an even better experience on the go.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-              variant="accent" 
+            <Button
+              variant="accent"
               size="lg"
               className="min-w-[200px]"
             >
               Download App
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="bg-transparent border-white text-white hover:bg-white/10 min-w-[200px]"
             >
@@ -359,7 +360,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* App Features */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -407,13 +408,13 @@ const Index = () => {
                 Download Now
               </Button>
             </div>
-            
+
             <div className="order-1 lg:order-2 flex justify-center" ref={animateRef}>
               <div className="relative max-w-[300px]">
                 <div className="absolute -top-6 -left-6 w-full h-full bg-irctc-royal-blue rounded-3xl transform -rotate-6"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?ixlib=rb-4.0.3&q=85&w=600&h=900&crop=center" 
-                  alt="IRCTC Express Mobile App" 
+                <img
+                  src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?ixlib=rb-4.0.3&q=85&w=600&h=900&crop=center"
+                  alt="IRCTC Express Mobile App"
                   className="relative z-10 w-full h-auto rounded-3xl shadow-xl"
                 />
               </div>
